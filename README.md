@@ -25,7 +25,7 @@ Nails Aldi es un salón de belleza enfocado en proporcionar servicios profesiona
 
 Visítanos en nuestro salón ubicado en [dirección], o contáctanos para hacer una cita:
 
-- **Teléfono**: [+595 993 508569](tel:+595 000000000)
+- **Teléfono**: [+595 000000000]
 - **Email**: correo@.com
 
 ## ¿Cómo agendar una cita?
