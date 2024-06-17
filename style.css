@@ -14,6 +14,7 @@ body {
     font-family: 'Roboto', sans-serif;
     background-color: #121212;
     color: #ffffff;
+    padding: 20px;
 }
 
 .roboto-font {
@@ -24,38 +25,35 @@ body {
     font-size: 3rem;
     font-family: "Sedan", serif;
     font-weight: 700;
-    font-style: reboto;
+    font-style: normal; /* Corrige "reboto" a "normal" */
     margin-bottom: 2rem;
 }
 
-/* Estilos para las tarjetas */
+/* Estilos básicos para las tarjetas */
 .card-container {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 20px; /* Espacio entre las tarjetas */
-    justify-content: space-around; /* Distribución equitativa de las tarjetas */
+    padding: 20px;
 }
 
 .card {
-    flex: 1 1 calc(25% - 20px); /* Flexibilidad para ajustar el tamaño de las tarjetas */
-    max-width: 300px; /* Ancho máximo para las tarjetas */
-    margin-bottom: 20px;
-    background-color: #1f1f1f;
+    background-color: #2c2c2c; /* Fondo oscuro */
+    color: white; /* Texto blanco para contrastar con el fondo oscuro */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     border-radius: 10px;
     overflow: hidden;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
-.card:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+.card-inner {
+    padding: 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
 }
 
-.card img {
+.card-img-top {
     width: 100%;
     height: auto;
-    border-radius: 10px 10px 0 0; /* Redondeo solo en la parte superior de la imagen */
+    border-bottom: 1px solid #ddd;
 }
 
 .card-body {
@@ -63,15 +61,77 @@ body {
 }
 
 .card-title {
+    font-size: 1.5rem;
+    margin-bottom: 10px;
+}
+
+.card-text {
+    font-size: 1rem;
+    color: #ccc; /* Texto ligeramente gris para contraste */
+}
+
+/* Media queries para diferentes tamaños de pantalla */
+@media (max-width: 767px) {
+    .card-container {
+        padding: 10px;
+    }
+
+    .card {
+        margin-bottom: 20px;
+    }
+
+    .card-title {
+        font-size: 1.2rem;
+    }
+
+    .card-text {
+        font-size: 0.9rem;
+    }
+}
+
+@media (min-width: 768px) and (max-width: 991px) {
+    .card-container {
+        padding: 15px;
+    }
+
+    .card-title {
+        font-size: 1.4rem;
+    }
+
+    .card-text {
+        font-size: 1rem;
+    }
+}
+
+@media (min-width: 992px) {
+    .card-container {
+        padding: 20px;
+    }
+
+    .card-title {
+        font-size: 1.5rem;
+    }
+
+    .card-text {
+        font-size: 1rem;
+    }
+}
+
+img {
+    width: 100%;
+    height: auto;
+    border-radius: 10px 10px 0 0; /* Redondeo solo en la parte superior de la imagen */
+}
+
+.title {
     font-size: 1.5rem; /* Tamaño de fuente más grande */
     margin-bottom: 1rem;
 }
 
-.card-text {
+.text {
     font-size: 1.4rem; /* Tamaño de fuente ligeramente más grande */
     color: #ccc; /* Color de texto más claro */
 }
-
 
 /* Estilos para el formulario de contacto */
 form {
@@ -111,10 +171,9 @@ form textarea {
     padding: 1rem;
     font-size: 1.6rem;
     border-radius: 0.5rem;
-    border: 1px solid #ccc;
+    border: 1px solid #444444; /* Ajuste en el borde */
     background-color: #333333;
     color: #ffffff;
-    border: 1px solid #444444;
     box-sizing: border-box; /* Aseguramos que el padding no afecte el ancho total */
 }
 
@@ -151,23 +210,7 @@ form input[type="submit"]:hover {
 }
 
 
-/* Estilos para el footer */
-footer {
-    text-align: center;
-    margin-top: 2rem;
-    padding: 1rem 0;
-}
-
-footer p {
-    font-size: 1.4rem;
-}
-
 /* Estilos para la lista de navegación */
-/* .navbar {
-    background-color: #1f1f1f;
-    margin-bottom: 0.5rem;
-} */
-
 .nav-link {
     font-size: 0.9rem;
     font-weight: bold;
@@ -185,7 +228,7 @@ footer p {
 }
 
 .nav-pills {
-    justify-content: right;
+    justify-content: flex-end; /* Alineación a la derecha */
     margin-bottom: 2rem;
 }
 
@@ -193,3 +236,71 @@ footer p {
     margin-right: 1rem;
 }
 
+@media (max-width: 991.98px) {
+    .navbar-nav {
+        flex-direction: column; /* Alineación vertical en dispositivos móviles */
+    }
+
+    .nav-item {
+        margin-bottom: 0.5rem; /* Espaciado entre elementos en dispositivos móviles */
+        margin-right: 0; /* Eliminar margen derecho en dispositivos móviles */
+    }
+
+    .nav-pills {
+        justify-content: flex-start; /* Alineación a la izquierda en dispositivos móviles */
+    }
+}
+
+
+/* Estilos para el footer */
+footer {
+    background-color: #2c2c2c; /* Fondo oscuro */
+    color: white; /* Texto blanco */
+    padding: 20px 0;
+}
+
+footer .container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+}
+
+footer p {
+    margin: 5px 0; /* Márgenes para los párrafos */
+}
+
+footer a {
+    color: #ccc; /* Color del texto de los enlaces */
+    text-decoration: none; /* Sin subrayado */
+}
+
+footer a:hover {
+    color: white; /* Color del texto de los enlaces al pasar el ratón */
+    text-decoration: none; /* Subrayado al pasar el ratón */
+}
+
+footer .social-links {
+    list-style: none; /* Sin viñetas */
+    padding: 0;
+    margin: 10px 0; /* Margen superior e inferior */
+    display: flex;
+    gap: 15px; /* Espacio entre los elementos */
+    justify-content: center; /* Centrar horizontalmente */
+}
+
+footer .social-links li {
+    display: inline-block; /* Elementos en línea */
+}
+
+.social-icon {
+    display: inline-block;
+    font-size: 1.2rem; /* Tamaño de los íconos */
+    color: #ccc; /* Color de los íconos */
+    transition: color 0.3s ease; /* Transición de color suave */
+}
+
+.social-icon:hover {
+    color: white; /* Cambio de color en hover */
+}
